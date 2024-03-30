@@ -4,7 +4,7 @@
   import { message } from '@tauri-apps/api/dialog';
   const handleClick = async() => {
     const f: FsTextFileOption = {
-      path: './test.txt',
+      path: '~/code/test.txt',
       contents: 'Cogito, ergo sum.',
     }
 
