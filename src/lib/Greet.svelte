@@ -2,7 +2,9 @@
   import { invoke } from "@tauri-apps/api/tauri"
   import { listen } from "@tauri-apps/api/event"
 
-  listen("event_name")
+  listen("event_name", (event) => {
+    console.log(event);
+  })
 
   let name = "";
   let greetMsg = ""
