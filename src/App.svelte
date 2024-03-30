@@ -1,5 +1,17 @@
 <script lang="ts">
-  import Greet from './lib/Greet.svelte'
+  import Greet from './lib/Greet.svelte';
+  import { writeFile, type FsTextFileOption } from '@tauri-apps/api/fs';
+  import { message } from '@tauri-apps/api/dialog';
+  const handleClick = async() => {
+    const f: FsTextFileOption = {
+      path: './test.txt',
+      contents: 'Cogito, ergo sum.',
+    }
+
+    await writeFile(f);
+    await message(`yay! ${f.path}`);
+  }
+
 </script>
 
 <main class="container">
@@ -25,6 +37,7 @@
     <Greet />
   </div>
 
+  <button on:click={handleClick}>Create a file</button>
 
 </main>
 
